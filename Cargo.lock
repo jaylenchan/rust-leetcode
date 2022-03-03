@@ -5,3 +5,7 @@ version = 3
 [[package]]
 name = "array"
 version = "0.1.0"
+
+[[package]]
+name = "string"
+version = "0.1.0"
