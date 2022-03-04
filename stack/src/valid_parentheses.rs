@@ -67,47 +67,47 @@ impl Solution {
         }
         let s = s.chars();
         let mut vec: Vec<char> = vec![];
-        let mut valid = Box::new(false);
+        let mut valid = false;
         for ch in s {
             match ch {
                 '(' | '[' | '{' => vec.push(ch),
                 ')' => match vec.pop() {
                     Some(parenthese) if parenthese == '(' => {
-                        *valid = true;
+                        valid = true;
                     }
                     _ => {
-                        *valid = false;
-                        return *valid;
+                        valid = false;
+                        return valid;
                     }
                 },
                 ']' => match vec.pop() {
                     Some(parenthese) if parenthese == '[' => {
-                        *valid = true;
+                        valid = true;
                     }
                     _ => {
-                        *valid = false;
-                        return *valid;
+                        valid = false;
+                        return valid;
                     }
                 },
                 '}' => match vec.pop() {
                     Some(parenthese) if parenthese == '{' => {
-                        *valid = true;
+                        valid = true;
                     }
                     _ => {
-                        *valid = false;
-                        return *valid;
+                        valid = false;
+                        return valid;
                     }
                 },
                 _ => {
-                    *valid = false;
-                    return *valid;
+                    valid = false;
+                    return valid;
                 }
             }
         }
         if vec.len() > 0 {
-            *valid = false;
+            valid = false;
         }
-        *valid
+        valid
     }
 }
 // @lc code=end
