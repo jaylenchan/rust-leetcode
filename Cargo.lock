@@ -11,5 +11,9 @@ name = "math"
 version = "0.1.0"
 
 [[package]]
+name = "stack"
+version = "0.1.0"
+
+[[package]]
 name = "string"
 version = "0.1.0"

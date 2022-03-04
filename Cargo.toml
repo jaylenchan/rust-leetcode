@@ -2,5 +2,6 @@
 members = [
   "array",
   "string",
-  "math"
+  "math",
+  "stack",
 ]
