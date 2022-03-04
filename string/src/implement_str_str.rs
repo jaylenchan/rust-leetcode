@@ -80,29 +80,29 @@ mod tests {
         needle: String,
     }
 
-    struct Suite {
+    struct TestCase {
         input: Input,
         output: i32,
     }
 
     #[test]
     fn test_str_str() {
-        let suites = vec![
-            Suite {
+        let test_cases = vec![
+            TestCase {
                 input: Input {
                     haystack: "hello".to_string(),
                     needle: "ll".to_string(),
                 },
                 output: 2,
             },
-            Suite {
+            TestCase {
                 input: Input {
                     haystack: "aaaaa".to_string(),
                     needle: "bba".to_string(),
                 },
                 output: -1,
             },
-            Suite {
+            TestCase {
                 input: Input {
                     haystack: "".to_string(),
                     needle: "".to_string(),
@@ -111,10 +111,10 @@ mod tests {
             },
         ];
 
-        for suite in suites {
+        for test_case in test_cases {
             assert_eq!(
-                Solution::str_str(suite.input.haystack, suite.input.needle),
-                suite.output
+                Solution::str_str(test_case.input.haystack, test_case.input.needle),
+                test_case.output
             )
         }
     }

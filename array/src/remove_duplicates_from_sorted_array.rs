@@ -110,20 +110,23 @@ impl Solution {
 mod tests {
     use super::*;
 
-    struct Suite {
+    struct TestCase {
         input: Vec<i32>,
         output: i32,
     }
 
     #[test]
     fn test_remove_duplicates() {
-        let suites = vec![Suite {
+        let test_cases = vec![TestCase {
             input: vec![0, 0, 1, 1, 1, 2, 2, 3, 3, 4],
             output: 5,
         }];
 
-        for mut suite in suites {
-            assert_eq!(Solution::remove_duplicates(&mut suite.input), suite.output);
+        for mut test_case in test_cases {
+            assert_eq!(
+                Solution::remove_duplicates(&mut test_case.input),
+                test_case.output
+            );
         }
     }
 }

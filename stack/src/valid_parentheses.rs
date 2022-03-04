@@ -116,38 +116,38 @@ impl Solution {
 mod tests {
     use super::*;
 
-    struct Suite {
+    struct TestCase {
         input: String,
         output: bool,
     }
 
     #[test]
     fn test_is_valid() {
-        let suties = [
-            Suite {
+        let test_cases = [
+            TestCase {
                 input: String::from("()"),
                 output: true,
             },
-            Suite {
+            TestCase {
                 input: String::from("()[]{}"),
                 output: true,
             },
-            Suite {
+            TestCase {
                 input: String::from("(]"),
                 output: false,
             },
-            Suite {
+            TestCase {
                 input: String::from("({{{}}}}))"),
                 output: false,
             },
-            Suite {
+            TestCase {
                 input: String::from("{{{}"),
                 output: false,
             },
         ];
 
-        for suite in suties {
-            assert_eq!(Solution::is_valid(suite.input), suite.output);
+        for test_case in test_cases {
+            assert_eq!(Solution::is_valid(test_case.input), test_case.output);
         }
     }
 }

@@ -113,7 +113,7 @@ impl Solution {
 mod tests {
     use super::*;
 
-    struct Suite {
+    struct TestCase {
         input: Vec<i32>,
         target: i32,
         output: i32,
@@ -121,23 +121,23 @@ mod tests {
 
     #[test]
     fn test_remove_element() {
-        let suites = vec![
-            Suite {
+        let test_cases = vec![
+            TestCase {
                 input: vec![3, 2, 2, 3],
                 target: 3,
                 output: 2,
             },
-            Suite {
+            TestCase {
                 input: vec![0, 1, 2, 2, 3, 0, 4, 2],
                 target: 2,
                 output: 5,
             },
         ];
 
-        for mut suite in suites {
+        for mut test_case in test_cases {
             assert_eq!(
-                Solution::remove_element(&mut suite.input, suite.target),
-                suite.output
+                Solution::remove_element(&mut test_case.input, test_case.target),
+                test_case.output
             )
         }
     }

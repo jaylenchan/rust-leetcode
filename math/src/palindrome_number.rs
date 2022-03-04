@@ -80,30 +80,30 @@ impl Solution {
 mod tests {
     use super::*;
 
-    struct Suite {
+    struct TestCase {
         input: i32,
         output: bool,
     }
 
     #[test]
     fn test_is_palindrome() {
-        let suites = vec![
-            Suite {
+        let test_cases = vec![
+            TestCase {
                 input: 121,
                 output: true,
             },
-            Suite {
+            TestCase {
                 input: -121,
                 output: false,
             },
-            Suite {
+            TestCase {
                 input: 10,
                 output: false,
             },
         ];
 
-        for suite in suites {
-            assert_eq!(Solution::is_palindrome(suite.input), suite.output);
+        for test_case in test_cases {
+            assert_eq!(Solution::is_palindrome(test_case.input), test_case.output);
         }
     }
 }

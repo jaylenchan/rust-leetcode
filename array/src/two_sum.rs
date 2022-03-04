@@ -91,7 +91,7 @@ impl Solution {
 mod tests {
     use super::*;
 
-    struct Suite {
+    struct TestCase {
         input: Vec<i32>,
         target: i32,
         output: Vec<i32>,
@@ -99,26 +99,29 @@ mod tests {
 
     #[test]
     fn test_two_sum() {
-        let suites = vec![
-            Suite {
+        let test_cases = vec![
+            TestCase {
                 input: vec![2, 7, 11, 15],
                 target: 9,
                 output: vec![0, 1],
             },
-            Suite {
+            TestCase {
                 input: vec![3, 2, 4],
                 target: 6,
                 output: vec![1, 2],
             },
-            Suite {
+            TestCase {
                 input: vec![3, 3],
                 target: 6,
                 output: vec![0, 1],
             },
         ];
 
-        for suite in suites {
-            assert_eq!(Solution::two_sum(suite.input, suite.target), suite.output);
+        for test_case in test_cases {
+            assert_eq!(
+                Solution::two_sum(test_case.input, test_case.target),
+                test_case.output
+            );
         }
     }
 }

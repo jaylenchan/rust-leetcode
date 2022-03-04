@@ -79,36 +79,36 @@ impl Solution {
 mod tests {
     use super::*;
 
-    struct Suite {
+    struct TestCase {
         input: String,
         output: i32,
     }
 
     #[test]
     fn test_length_of_longest_substring() {
-        let suites = vec![
-            Suite {
+        let test_cases = vec![
+            TestCase {
                 input: "abcabcbb".to_string(),
                 output: 3,
             },
-            Suite {
+            TestCase {
                 input: "bbbbb".to_string(),
                 output: 1,
             },
-            Suite {
+            TestCase {
                 input: "pwwkew".to_string(),
                 output: 3,
             },
-            Suite {
+            TestCase {
                 input: "au".to_string(),
                 output: 2,
             },
         ];
 
-        for suite in suites {
+        for test_case in test_cases {
             assert_eq!(
-                Solution::length_of_longest_substring(suite.input),
-                suite.output
+                Solution::length_of_longest_substring(test_case.input),
+                test_case.output
             );
         }
     }
