@@ -58,8 +58,7 @@ impl Solution {
             return 0;
         }
 
-        let temp_str = haystack.clone();
-        let vec_str: Vec<_> = temp_str.split(&needle).collect();
+        let vec_str: Vec<_> = haystack.split(&needle).collect();
         if vec_str.len() == 1 {
             return -1;
         }
