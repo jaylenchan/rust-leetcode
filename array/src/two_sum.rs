@@ -92,7 +92,7 @@ mod tests {
     use super::*;
 
     struct Suite {
-        nums: Vec<i32>,
+        input: Vec<i32>,
         target: i32,
         output: Vec<i32>,
     }
@@ -101,24 +101,24 @@ mod tests {
     fn test_two_sum() {
         let suites = vec![
             Suite {
-                nums: vec![2, 7, 11, 15],
+                input: vec![2, 7, 11, 15],
                 target: 9,
                 output: vec![0, 1],
             },
             Suite {
-                nums: vec![3, 2, 4],
+                input: vec![3, 2, 4],
                 target: 6,
                 output: vec![1, 2],
             },
             Suite {
-                nums: vec![3, 3],
+                input: vec![3, 3],
                 target: 6,
                 output: vec![0, 1],
             },
         ];
 
         for suite in suites {
-            assert_eq!(Solution::two_sum(suite.nums, suite.target), suite.output);
+            assert_eq!(Solution::two_sum(suite.input, suite.target), suite.output);
         }
     }
 }

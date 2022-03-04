@@ -80,7 +80,7 @@ mod tests {
     use super::*;
 
     struct Suite {
-        s: String,
+        input: String,
         output: i32,
     }
 
@@ -88,25 +88,28 @@ mod tests {
     fn test_length_of_longest_substring() {
         let suites = vec![
             Suite {
-                s: "abcabcbb".to_string(),
+                input: "abcabcbb".to_string(),
                 output: 3,
             },
             Suite {
-                s: "bbbbb".to_string(),
+                input: "bbbbb".to_string(),
                 output: 1,
             },
             Suite {
-                s: "pwwkew".to_string(),
+                input: "pwwkew".to_string(),
                 output: 3,
             },
             Suite {
-                s: "au".to_string(),
+                input: "au".to_string(),
                 output: 2,
             },
         ];
 
         for suite in suites {
-            assert_eq!(Solution::length_of_longest_substring(suite.s), suite.output);
+            assert_eq!(
+                Solution::length_of_longest_substring(suite.input),
+                suite.output
+            );
         }
     }
 }
