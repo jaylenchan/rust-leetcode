@@ -52,8 +52,51 @@ struct Solution;
 impl Solution {
     #[allow(dead_code)]
     pub fn longest_common_prefix(strs: Vec<String>) -> String {
-        
-        todo!()
+        use std::{collections::HashMap, f64::INFINITY};
+
+        if strs.len() == 1 {
+            return strs[0].clone();
+        }
+
+        let mut min_len = INFINITY as usize;
+        let mut vec_strs: Vec<Vec<char>> = vec![vec![]; strs.len()];
+        for index in 0..strs.len() {
+            let str = &strs[index];
+            if min_len > str.len() {
+                min_len = str.len();
+            }
+            vec_strs[index] = str.chars().collect();
+        }
+
+        let mut vec = vec!['_'; min_len];
+        let mut hashmap: HashMap<usize, i32> = HashMap::new();
+        for vec_str in &vec_strs {
+            for i in 0..vec.len() {
+                if vec[i] == '_' {
+                    vec[i] = vec_str[i];
+                    hashmap.insert(i, 1);
+                } else {
+                    if vec[i] == vec_str[i] {
+                        hashmap.insert(i, hashmap.get(&i).unwrap() + 1);
+                    } else {
+                        vec[i] = vec_str[i];
+                        hashmap.insert(i, hashmap.get(&i).unwrap() - 1);
+                        break;
+                    }
+                }
+            }
+        }
+        let mut ans: Vec<char> = vec![];
+        for i in 0..vec.len() {
+            if *hashmap.get(&i).unwrap() == strs.len() as i32 {
+                ans.push(vec[i]);
+            } else {
+                break;
+            }
+        }
+        let mut output = String::with_capacity(ans.len());
+        output.extend(ans);
+        output
     }
 }
 // @lc code=end
