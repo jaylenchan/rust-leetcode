@@ -99,7 +99,7 @@ mod tests {
         nums2: Vec<i32>,
     }
 
-    struct Testcase {
+    struct TestCase {
         input: Input,
         output: Vec<i32>,
     }
@@ -107,21 +107,21 @@ mod tests {
     #[test]
     fn test_intersect() {
         let test_cases = vec![
-            Testcase {
+            TestCase {
                 input: Input {
                     nums1: vec![1, 2, 2, 1],
                     nums2: vec![2, 2],
                 },
                 output: vec![2, 2],
             },
-            Testcase {
+            TestCase {
                 input: Input {
                     nums1: vec![4, 9, 5],
                     nums2: vec![9, 4, 9, 8, 4],
                 },
                 output: vec![4, 9],
             },
-            Testcase {
+            TestCase {
                 input: Input {
                     nums1: vec![3, 3, 2],
                     nums2: vec![2, 1, 1, 3, 4],
