@@ -60,40 +60,25 @@ struct Solution;
 impl Solution {
     #[allow(dead_code)]
     pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
-        struct Number {
-            index: usize,
-            value: i32,
-        }
-        let mut left_number = Number {
-            index: 0,
-            value: nums[0],
-        };
-        let mut right_number = Number {
-            index: nums.len() - 1,
-            value: nums[nums.len() - 1],
-        };
-        let mut ans = 0;
+        let mut left: i32 = 0;
+        let mut right: i32 = nums.len() as i32 - 1;
+        let mut mid: i32 = 0;
 
-        while left_number.index <= right_number.index {
-            let mid = ((right_number.index - left_number.index) >> 1) + left_number.index;
-            let mid_number = Number {
-                index: mid,
-                value: nums[mid],
-            };
-
-            if mid_number.value > target {
-                right_number.index = mid_number.index - 1;
-                right_number.value = nums[mid_number.index - 1];
-            } else if mid_number.value < target {
-                left_number.index = mid_number.index + 1;
-                left_number.value = nums[mid_number.index + 1];
+        while left <= right {
+            mid = left + ((right - left) >> 1);
+            if nums[mid as usize] == target {
+                return mid as i32;
+            } else if nums[mid as usize] > target {
+                right = mid - 1;
             } else {
-                ans = mid_number.index;
-                break;
+                left = mid + 1;
             }
         }
 
-        ans as i32
+        if right < mid {
+            return mid;
+        }
+        mid + 1
     }
 }
 // @lc code=end
