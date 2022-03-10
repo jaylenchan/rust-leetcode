@@ -4,5 +4,6 @@ members = [
   "string",
   "math",
   "stack",
-  "hash-table"
+  "hash-table",
+  "two-pointers"
 ]
