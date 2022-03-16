@@ -15,6 +15,10 @@ name = "math"
 version = "0.1.0"
 
 [[package]]
+name = "sliding-window"
+version = "0.1.0"
+
+[[package]]
 name = "stack"
 version = "0.1.0"
 
