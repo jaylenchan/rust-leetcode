@@ -59,15 +59,15 @@ impl Solution {
     pub fn contains_nearby_duplicate(nums: Vec<i32>, k: i32) -> bool {
         use std::collections::HashSet;
         let mut num_set: HashSet<i32> = HashSet::new();
+
         for i in 0..nums.len() {
-            let num = nums[i];
-            if num_set.contains(&num) {
+            if i as i32 > k {
+                num_set.remove(&nums[i - k as usize - 1]);
+            }
+            if num_set.contains(&nums[i]) {
                 return true;
             }
-            num_set.insert(num);
-            if num_set.len() as i32 > k {
-                num_set.remove(&nums[i - k as usize]);
-            }
+            num_set.insert(nums[i]);
         }
         false
     }
